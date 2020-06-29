@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <app-dropdown-list [items]="regions | async" lablel='Region' (selectedValue)="onRegionChange($event)">
+      </app-dropdown-list>
+    </div>
+    <div class="col-12">
+      <app-dropdown-list [items]="countryList" [needLoadBtn]="true" lablel='Country' (showData)="showDetails = true"
+      (selectedValue)="showDetails = false;onCountryChange($event)" [disabled]="countryList.length < 1">
+  </app-dropdown-list>
+    </div>
+    <div class="col-12">
+      <app-country-details *ngIf="selctedCountry && showDetails" [selctedCountry]="selctedCountry"></app-country-details>
+    </div>
+  </div>
+    
+    
+    
+</div>
